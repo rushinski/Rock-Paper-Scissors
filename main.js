@@ -4,8 +4,6 @@ let compCount = 0;
 function check(button) {
   let selectedMove = button.value; // Gets the value of the button clicked
   let ranMove = Math.floor(Math.random() * 3); // Generates random number from 0-2
-  let resultMessage = document.createElement("p");
-  let pickedMessage = document.createElement("p");
 
   switch (ranMove) { // Changing random number values to move values
     case 0:
@@ -15,27 +13,32 @@ function check(button) {
       ranMove = 'Paper';
       break;
     case 2:
-      ranMove = "Scissors";
+      ranMove = 'Scissors';
       break;
   }
 
+  let resultMessage = document.createElement("p");
+  resultMessage.classList.add('right-message');
+
+  let pickedMessage = document.createElement("p");
   pickedMessage.textContent = `You picked ${selectedMove} | The computer picked ${ranMove}`;
+  pickedMessage.classList.add('right-message'); // Adds the class "right-message" from css (puts texts on left side of page)
   document.body.appendChild(pickedMessage);
 
   switch (selectedMove) {
     case 'Rock':
       switch (ranMove) {
         case 'Rock':
-          resultMessage.textContent = "Tie game.";
+          resultMessage.innerHTML = "Tie game.<br>---------------";
           document.body.appendChild(resultMessage); 
           break;
         case 'Paper':
-          resultMessage.textContent = "The computer won this round...";
+          resultMessage.innerHTML = "The computer won this round...<br>---------------";
           document.body.appendChild(resultMessage);
           compCount++;
           break;
         case 'Scissors':
-          resultMessage.textContent = "You won!";
+          resultMessage.innerHTML = "You won!<br>---------------";
           document.body.appendChild(resultMessage); 
           userCount++;
           break;
@@ -44,16 +47,16 @@ function check(button) {
     case 'Paper':
       switch (ranMove) {
         case 'Rock':
-          resultMessage.textContent = "You won!";
+          resultMessage.innerHTML = "You won!<br>---------------";
           document.body.appendChild(resultMessage); 
           userCount++;
           break;
         case 'Paper':
-          resultMessage.textContent = "Tie game.";
+          resultMessage.innerHTML = "Tie game.<br>---------------";
           document.body.appendChild(resultMessage); 
           break;
         case 'Scissors':
-          resultMessage.textContent = "The computer won this round...";
+          resultMessage.innerHTML = "The computer won this round...<br>---------------";
           document.body.appendChild(resultMessage);
           compCount++;
           break;
@@ -62,17 +65,17 @@ function check(button) {
     case 'Scissors':
       switch (ranMove) {
         case 'Rock':
-          resultMessage.textContent = "The computer won this round...";
+          resultMessage.innerHTML = "The computer won this round...<br>---------------";
           document.body.appendChild(resultMessage); 
           compCount++;
           break;
         case 'Paper':
-          resultMessage.textContent = "You won!";
+          resultMessage.innerHTML = "You won!<br>---------------";
           document.body.appendChild(resultMessage); 
           userCount++;
           break;
         case 'Scissors':
-          resultMessage.textContent = "Tie game.";
+          resultMessage.innerHTML = "Tie game.<br>---------------";
           document.body.appendChild(resultMessage); 
           break;
       }
