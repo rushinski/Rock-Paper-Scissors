@@ -11,10 +11,9 @@
 
 .buttons {
   text-align: center;
-  height: 100px;
+  margin-bottom: 5px;
 }
 
-.right-message {
-  text-align: right; 
-  margin-right: 100px;
+.text {
+  text-align: center;
 }

@@ -1,5 +1,21 @@
-let userCount = 0;
-let compCount = 0;
+var userCount = 0;
+var compCount = 0;
+
+// Creates score message
+let scoreboard = document.createElement("p");
+scoreboard.textContent = `Your Score is : ${userCount} | The Computer's Score is : ${compCount}`;
+scoreboard.classList.add('text');
+document.body.appendChild(scoreboard);
+
+// Creates result message
+let resultMessage = document.createElement("p");
+resultMessage.classList.add('text');
+document.body.appendChild(resultMessage);
+
+// Creates picked message
+let pickedMessage = document.createElement("p");
+pickedMessage.classList.add('text');
+document.body.appendChild(pickedMessage);
 
 function check(button) {
   let selectedMove = button.value; // Gets the value of the button clicked
@@ -17,29 +33,21 @@ function check(button) {
       break;
   }
 
-  let resultMessage = document.createElement("p");
-  resultMessage.classList.add('right-message');
+  pickedMessage.textContent = `You picked ${selectedMove} | The computer picked ${ranMove}`; // Gets picked elements for that round
 
-  let pickedMessage = document.createElement("p");
-  pickedMessage.textContent = `You picked ${selectedMove} | The computer picked ${ranMove}`;
-  pickedMessage.classList.add('right-message'); // Adds the class "right-message" from css (puts texts on left side of page)
-  document.body.appendChild(pickedMessage);
-
+  // Logic
   switch (selectedMove) {
     case 'Rock':
       switch (ranMove) {
         case 'Rock':
-          resultMessage.innerHTML = "Tie game.<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "Tie game.";
           break;
         case 'Paper':
-          resultMessage.innerHTML = "The computer won this round...<br>---------------";
-          document.body.appendChild(resultMessage);
+          resultMessage.innerHTML = "The computer won this round...";
           compCount++;
           break;
         case 'Scissors':
-          resultMessage.innerHTML = "You won!<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "You won!";
           userCount++;
           break;
       }
@@ -47,17 +55,14 @@ function check(button) {
     case 'Paper':
       switch (ranMove) {
         case 'Rock':
-          resultMessage.innerHTML = "You won!<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "You won!";
           userCount++;
           break;
         case 'Paper':
-          resultMessage.innerHTML = "Tie game.<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "Tie game.";
           break;
         case 'Scissors':
-          resultMessage.innerHTML = "The computer won this round...<br>---------------";
-          document.body.appendChild(resultMessage);
+          resultMessage.innerHTML = "The computer won this round...";
           compCount++;
           break;
       }
@@ -65,20 +70,19 @@ function check(button) {
     case 'Scissors':
       switch (ranMove) {
         case 'Rock':
-          resultMessage.innerHTML = "The computer won this round...<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "The computer won this round...";
           compCount++;
           break;
         case 'Paper':
-          resultMessage.innerHTML = "You won!<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "You won!";
           userCount++;
           break;
         case 'Scissors':
-          resultMessage.innerHTML = "Tie game.<br>---------------";
-          document.body.appendChild(resultMessage); 
+          resultMessage.innerHTML = "Tie game.";
           break;
       }
       break;
   }
+
+  scoreboard.textContent = `Your Score is : ${userCount} | The Computer's Score is : ${compCount}`; // Updates Scores
 }
