@@ -2,63 +2,76 @@ let userCount = 0;
 let compCount = 0;
 
 function check(button) {
-  let selectedMove = button.value;
-  let ranNum = Math.floor(Math.random() * 3);
+  let selectedMove = button.value; // Gets the value of the button clicked
+  let ranMove = Math.floor(Math.random() * 3); // Generates random number from 0-2
   let resultMessage = document.createElement("p");
+  let pickedMessage = document.createElement("p");
 
+  switch (ranMove) { // Changing random number values to move values
+    case 0:
+      ranMove = 'Rock';
+      break;
+    case 1:
+      ranMove = 'Paper';
+      break;
+    case 2:
+      ranMove = "Scissors";
+      break;
+  }
 
-  // 0 is rock, 1 is paper, 2 is scissors
+  pickedMessage.textContent = `You picked ${selectedMove} | The computer picked ${ranMove}`;
+  document.body.appendChild(pickedMessage);
 
   switch (selectedMove) {
-    case '0': // Rock
-      switch (ranNum) {
-        case 0:
+    case 'Rock':
+      switch (ranMove) {
+        case 'Rock':
           resultMessage.textContent = "Tie game.";
           document.body.appendChild(resultMessage); 
           break;
-        case 1:
-          resultMessage.textContent = "The computer won this round!";
+        case 'Paper':
+          resultMessage.textContent = "The computer won this round...";
           document.body.appendChild(resultMessage);
           compCount++;
           break;
-        case 2:
+        case 'Scissors':
           resultMessage.textContent = "You won!";
           document.body.appendChild(resultMessage); 
           userCount++;
           break;
       }
       break;
-    case '1': // Paper
-      switch (ranNum) {
-        case 0:
+    case 'Paper':
+      switch (ranMove) {
+        case 'Rock':
           resultMessage.textContent = "You won!";
           document.body.appendChild(resultMessage); 
           userCount++;
           break;
-        case 1:
+        case 'Paper':
           resultMessage.textContent = "Tie game.";
           document.body.appendChild(resultMessage); 
           break;
-        case 2:
+        case 'Scissors':
           resultMessage.textContent = "The computer won this round...";
           document.body.appendChild(resultMessage);
           compCount++;
           break;
       }
       break;
-    case '2': // Scissors
-      switch (ranNum) {
-        case 0:
+    case 'Scissors':
+      switch (ranMove) {
+        case 'Rock':
           resultMessage.textContent = "The computer won this round...";
           document.body.appendChild(resultMessage); 
           compCount++;
           break;
-        case 1:
+        case 'Paper':
           resultMessage.textContent = "You won!";
           document.body.appendChild(resultMessage); 
           userCount++;
           break;
-        case 2:
+        case 'Scissors':
           resultMessage.textContent = "Tie game.";
           document.body.appendChild(resultMessage); 
           break;
