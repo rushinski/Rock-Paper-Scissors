@@ -1,8 +1,11 @@
+let userCount = 0;
+let compCount = 0;
+
 function check(button) {
   let selectedMove = button.value;
-  console.log(selectedMove);
   let ranNum = Math.floor(Math.random() * 3);
-  console.log(ranNum);
+  let resultMessage = document.createElement("p");
+
 
   // 0 is rock, 1 is paper, 2 is scissors
 
@@ -10,39 +13,54 @@ function check(button) {
     case '0': // Rock
       switch (ranNum) {
         case 0:
-          console.log("You tied");
+          resultMessage.textContent = "Tie game.";
+          document.body.appendChild(resultMessage); 
           break;
         case 1:
-          console.log("You lost");
+          resultMessage.textContent = "The computer won this round!";
+          document.body.appendChild(resultMessage);
+          compCount++;
           break;
         case 2:
-          console.log("You won");
+          resultMessage.textContent = "You won!";
+          document.body.appendChild(resultMessage); 
+          userCount++;
           break;
       }
       break;
     case '1': // Paper
       switch (ranNum) {
         case 0:
-          console.log("You won");
+          resultMessage.textContent = "You won!";
+          document.body.appendChild(resultMessage); 
+          userCount++;
           break;
         case 1:
-          console.log("You tied");
+          resultMessage.textContent = "Tie game.";
+          document.body.appendChild(resultMessage); 
           break;
         case 2:
-          console.log("You lost");
+          resultMessage.textContent = "The computer won this round...";
+          document.body.appendChild(resultMessage);
+          compCount++;
           break;
       }
       break;
     case '2': // Scissors
       switch (ranNum) {
         case 0:
-          console.log("You lost"); 
+          resultMessage.textContent = "The computer won this round...";
+          document.body.appendChild(resultMessage); 
+          compCount++;
           break;
         case 1:
-          console.log("You won");
+          resultMessage.textContent = "You won!";
+          document.body.appendChild(resultMessage); 
+          userCount++;
           break;
         case 2:
-          console.log("You tied");
+          resultMessage.textContent = "Tie game.";
+          document.body.appendChild(resultMessage); 
           break;
       }
       break;
