@@ -4,16 +4,35 @@
   box-sizing: border-box;
 }
 
-.heading {
-  text-align: center;
-  margin-bottom: 10px;
+body {
+  background-image: url("https://media.istockphoto.com/id/1167863983/vector/horizontal-vector-illustration-of-an-empty-light-blue-grungy-textured-background.jpg?s=612x612&w=0&k=20&c=AgBWyrJP5O0GlKOGwzO5IXl6NrspMIR7q1Z7kYq8YsI=");
 }
 
-.buttons {
+h1 {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-family: "Lucida Console", "Courier New", monospace;;
+}
+
+.buttons-group {
+  text-align: center;
+  padding: 10px;
+}
+
+.text-box {
+  background-color: white;
+  width: 50%;
+  margin-top: 20%;
+  margin-left: 25%;
+  text-align: center;
+  padding: 10px;
 }
 
 .text {
   text-align: center;
+  background-color: white;
+  width: 50%;
+  margin-top: 0px;
+  margin-left: 25%;
+  padding: 10px;
 }
